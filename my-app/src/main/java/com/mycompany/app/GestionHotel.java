@@ -1,10 +1,13 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 import java.util.List;
 
 public class GestionHotel {
+    @SuppressWarnings("unused")
     private Contabilidad contabilidad;
+    @SuppressWarnings("unused")
     private Marketing marketing;
+    @SuppressWarnings("unused")
     private GestionNotificaciones gestionNotificaciones;
 
     public void cargarCliente(Cliente cliente) {

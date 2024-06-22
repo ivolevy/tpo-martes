@@ -1,7 +1,9 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 public class PagoTarjetaCredito extends FormaPago {
+    @SuppressWarnings("unused")
     private String numTarjeta;
+    @SuppressWarnings("unused")
     private float monto;
 
     public PagoTarjetaCredito(Extras extras, String numTarjeta, float monto) {

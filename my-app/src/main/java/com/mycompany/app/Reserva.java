@@ -1,4 +1,4 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 import java.sql.Date;
 import java.util.List;

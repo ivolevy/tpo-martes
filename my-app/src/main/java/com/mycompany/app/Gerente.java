@@ -1,4 +1,4 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 public class Gerente extends UserController {
     public Gerente(String nombre, String apellido, String dni, String telefono, String email, String contacto) {

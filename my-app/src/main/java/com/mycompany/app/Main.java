@@ -1,4 +1,4 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -11,12 +11,12 @@ public class Main {
         Cliente cliente = new Cliente(null, null, null, null, null, null); // Suponiendo que Cliente tiene un constructor por defecto
         List<Huesped> huespedes = new ArrayList<>();
         List<PoliticaPrecios> politicasPrecios = new ArrayList<>();
-        FormaPago formaPago = new PagoEfectivo(null); // Suponiendo un método de pago por defecto
+        FormaPago formaPago = new PagoEfectivo(null); // Utilizando PagoEfectivo como método de pago
 
         // Configurar la reserva
         Reserva reserva = new Reserva();
-        reserva.idReserva = 1;
-        reserva.fechaCheckin = Date.valueOf("2024-07-01");
+        reserva.setIdReserva(1);
+        reserva.setFechaCheckin(Date.valueOf("2024-07-01"));
         reserva.setFechaCheckout(Date.valueOf("2024-07-10"));
         reserva.setHabitacion(habitacion);
         reserva.setCliente(cliente);
@@ -28,8 +28,8 @@ public class Main {
 
         // Imprimir detalles de la reserva
         System.out.println("Reserva creada con los siguientes detalles:");
-        System.out.println("ID: " + reserva.idReserva);
-        System.out.println("Check-in: " + reserva.fechaCheckin);
+        System.out.println("ID: " + reserva.getIdReserva());
+        System.out.println("Check-in: " + reserva.getFechaCheckin());
         System.out.println("Check-out: " + reserva.getFechaCheckout());
         System.out.println("Habitación: " + reserva.getHabitacion());
         System.out.println("Cliente: " + reserva.getCliente());
@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Estado después de cancelar: " + reserva.getEstado());
 
         // Pagar la reserva
-        reserva.pagarReserva();
+        reserva.pagarReserva(); // Esto debería llamar a pagar(double monto) de PagoEfectivo
         System.out.println("Estado después de pagar: " + reserva.getEstado());
 
         // Verificar disponibilidad

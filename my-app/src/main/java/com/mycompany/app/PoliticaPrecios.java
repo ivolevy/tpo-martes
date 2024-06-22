@@ -1,9 +1,11 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 import java.sql.Date;
 
 public class PoliticaPrecios {
+    @SuppressWarnings("unused")
     private int plazo;
+    @SuppressWarnings("unused")
     private float porcentaje;
 
     public PoliticaPrecios(int i, float f) {

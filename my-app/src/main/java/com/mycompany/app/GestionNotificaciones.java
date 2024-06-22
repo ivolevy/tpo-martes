@@ -1,4 +1,4 @@
-package com.hotelmanagement;
+package com.mycompany.app;
 
 public class GestionNotificaciones {
     public void notificarReserva(String notificacion, Cliente cliente) {
