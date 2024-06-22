@@ -1,44 +1,58 @@
 package com.mycompany.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestionHotel {
-    @SuppressWarnings("unused")
-    private Contabilidad contabilidad;
-    @SuppressWarnings("unused")
-    private Marketing marketing;
-    @SuppressWarnings("unused")
-    private GestionNotificaciones gestionNotificaciones;
+    private static GestionHotel instance;
+    private List<HabitacionComponent> habitaciones;
+    private List<Reserva> reservas;
+    private List<Factura> facturas;
+    private List<PoliticaPrecios> politicas;
 
-    public void cargarCliente(Cliente cliente) {
-        // Lógica para cargar cliente
+    private GestionHotel() {
+        this.habitaciones = new ArrayList<>();
+        this.reservas = new ArrayList<>();
+        this.facturas = new ArrayList<>();
+        this.politicas = new ArrayList<>();
     }
 
-    public void cargarHabitacion(Habitacion habitacion) {
-        // Lógica para cargar habitación
+    public static GestionHotel getInstance() {
+        if (instance == null) {
+            instance = new GestionHotel();
+        }
+        return instance;
     }
 
-    public void buscarHabitaciones(int cantidadPersonas, String tipo, List<String> extras) {
-        // Lógica para buscar habitaciones
+    public void agregarHabitacion(HabitacionComponent habitacion) {
+        habitaciones.add(habitacion);
     }
 
-    public void reservarHabitacion(Reserva reserva) {
-        // Lógica para reservar habitación
+    public void eliminarHabitacion(HabitacionComponent habitacion) {
+        habitaciones.remove(habitacion);
     }
 
-    public void cancelarHabitacion(Reserva reserva) {
-        // Lógica para cancelar habitación
+    public void agregarReserva(Reserva reserva) {
+        reservas.add(reserva);
     }
 
-    public void actualizarParametrosFactura(int plazo, float porcentaje) {
-        // Lógica para actualizar parámetros de facturación
+    public void eliminarReserva(Reserva reserva) {
+        reservas.remove(reserva);
     }
 
-    public void enviarFactura(Reserva reserva) {
-        // Lógica para enviar factura
+    public void agregarFactura(Factura factura) {
+        facturas.add(factura);
     }
 
-    public void generarReporteEstadoHabitaciones() {
-        // Lógica para generar reporte de estado de habitaciones
+    public void agregarPolitica(PoliticaPrecios politica) {
+        politicas.add(politica);
     }
+
+    public void generarReporteHabitaciones() {
+        for (HabitacionComponent habitacion : habitaciones) {
+            System.out.println("Habitación " + habitacion.getNumeroHabitacion() + ": " + (habitacion.verificarDisponibilidad(null, null) ? "Disponible" : "Ocupada"));
+        }
+    }
+
+    // Getters y Setters
 }

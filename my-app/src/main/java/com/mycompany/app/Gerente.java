@@ -5,31 +5,24 @@ public class Gerente extends UserController {
         super(nombre, apellido, dni, telefono, email, contacto);
     }
 
-    public void crearHabitacion(Habitacion habitacion) {
-        // Lógica para crear habitación
+    public void crearHabitacion(HabitacionComponent habitacion) {
+        GestionHotel.getInstance().agregarHabitacion(habitacion);
     }
 
-    public void actualizarHabitacion(Habitacion habitacion) {
-        // Lógica para actualizar habitación
+    public void eliminarHabitacion(HabitacionComponent habitacion) {
+        GestionHotel.getInstance().eliminarHabitacion(habitacion);
     }
 
-    public void eliminarHabitacion(Habitacion habitacion) {
-        // Lógica para eliminar habitación
-    }
-
-    public void confirmarReserva(Reserva reserva) {
-        // Lógica para confirmar reserva
+    public void actualizarDisponibilidad(HabitacionComponent habitacion, boolean disponible) {
+        habitacion.setDisponible(disponible);
     }
 
     public void cancelarReserva(Reserva reserva) {
-        // Lógica para cancelar reserva
+        reserva.setEstado("cancelada");
+        reserva.getHabitacion().actualizarDisponibilidad(reserva.getFechaCheckIn(), reserva.getFechaCheckIn(), true);
     }
 
-    public void pagarReserva(Reserva reserva) {
-        // Lógica para pagar reserva
-    }
-
-    public void actualizarPrecioPolitica(PoliticaPrecios politica) {
-        // Lógica para actualizar política de precios
+    public void actualizarPrecioPolitica(PoliticaPrecios politica, float porcentaje) {
+        politica.setPorcentaje(porcentaje);
     }
 }

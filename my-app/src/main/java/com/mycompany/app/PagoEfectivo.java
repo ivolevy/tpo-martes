@@ -1,14 +1,18 @@
 package com.mycompany.app;
 
-public class PagoEfectivo extends FormaPago {
+import java.util.List;
 
-    public PagoEfectivo(Extras extras) {
+public class PagoEfectivo extends FormaPago {
+    @SuppressWarnings("unused")
+    private float monto;
+
+    public PagoEfectivo(List<String> extras, float monto) {
         super(extras);
+        this.monto = monto;
     }
 
     @Override
-    public void pagar(double monto) {
-        System.out.println("Pagando $" + monto + " en efectivo.");
-        // Aquí podrías añadir la lógica real de pago en efectivo
+    public void pagar(float monto) {
+        System.out.println("Pagando en efectivo: " + monto);
     }
 }

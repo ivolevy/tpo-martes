@@ -1,63 +1,72 @@
 package com.mycompany.app;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Suite implements HabitacionComponent {
     private int numeroHabitacion;
     private int capacidad;
-    private String tipoHabitacion;
-    private List<HabitacionComponent> habitaciones = new ArrayList<>();
-    private List<Extras> extras;
+    private String tipo;
+    private List<String> extras;
+    private float precio;
+    private boolean disponible;
 
-    public Suite(int numeroHabitacion, int capacidad, String tipoHabitacion, List<Extras> extras) {
+    public Suite(int numeroHabitacion, int capacidad, String tipo, List<String> extras, float precio) {
         this.numeroHabitacion = numeroHabitacion;
         this.capacidad = capacidad;
-        this.tipoHabitacion = tipoHabitacion;
-        this.extras = extras;
+        this.tipo = tipo;
+        this.extras = new ArrayList<>(extras);
+        this.precio = precio;
+        this.disponible = true;
     }
 
+    @Override
     public int getNumeroHabitacion() {
         return numeroHabitacion;
     }
 
+    @Override
     public int getCapacidad() {
         return capacidad;
     }
 
-    public String getTipoHabitacion() {
-        return tipoHabitacion;
-    }
-
-    public List<Extras> getExtras() {
-        return extras;
-    }
-
-    public double obtenerPrecio() {
-        // Lógica para obtener precio
-        return 0;
-    }
-
-    public String obtenerDescripcion() {
-        // Lógica para obtener descripción
-        return "Suite " + numeroHabitacion + " de tipo " + tipoHabitacion;
-    }
-
-    public void agregarHabitacion(HabitacionComponent habitacionComponent) {
-        habitaciones.add(habitacionComponent);
-    }
-
-    public void removerHabitacion(HabitacionComponent habitacionComponent) {
-        habitaciones.remove(habitacionComponent);
-    }
-
-    public void actualizarDisponibilidad(boolean disponible) {
-        // Lógica para actualizar disponibilidad
+    @Override
+    public String getTipo() {
+        return tipo;
     }
 
     @Override
-    public void quitarHabitacion(HabitacionComponent habitacionComponent) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'quitarHabitacion'");
+    public List<String> getExtras() {
+        return new ArrayList<>(extras);
+    }
+
+    @Override
+    public float obtenerPrecio() {
+        return precio;
+    }
+
+    @Override
+    public void agregarHabitacion(HabitacionComponent habitacion) {
+        // No aplica para suites individuales
+    }
+
+    @Override
+    public void removerHabitacion(HabitacionComponent habitacion) {
+        // No aplica para suites individuales
+    }
+
+    @Override
+    public boolean verificarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut) {
+        return disponible;
+    }
+
+    @Override
+    public void actualizarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut, boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 }

@@ -1,15 +1,17 @@
 package com.mycompany.app;
 
-public abstract class FormaPago {
-    private Extras extras;
+import java.util.List;
 
-    public FormaPago(Extras extras) {
+public abstract class FormaPago {
+    @SuppressWarnings("unused")
+    private List<String> extras;
+
+    public FormaPago(List<String> extras) {
         this.extras = extras;
     }
 
-    public abstract void pagar(double monto);
+    public abstract void pagar(float monto);
 
-    public Extras getExtras() {
-        return extras;
-    }
+    // Getters y Setters
 }
+
