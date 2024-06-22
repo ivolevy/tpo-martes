@@ -54,4 +54,10 @@ public class Suite implements HabitacionComponent {
     public void actualizarDisponibilidad(boolean disponible) {
         // Lógica para actualizar disponibilidad
     }
+
+    @Override
+    public void quitarHabitacion(HabitacionComponent habitacionComponent) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'quitarHabitacion'");
+    }
 }

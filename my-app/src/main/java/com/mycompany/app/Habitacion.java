@@ -55,4 +55,10 @@ public class Habitacion implements HabitacionComponent {
     public void actualizarDisponibilidad(boolean disponible) {
         this.disponible = disponible;
     }
+
+    @Override
+    public void quitarHabitacion(HabitacionComponent habitacionComponent) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'quitarHabitacion'");
+    }
 }
