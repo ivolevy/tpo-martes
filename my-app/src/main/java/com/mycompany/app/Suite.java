@@ -1,72 +1,45 @@
 package com.mycompany.app;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class Suite implements HabitacionComponent {
-    private int numeroHabitacion;
-    private int capacidad;
-    private String tipo;
-    private List<String> extras;
-    private float precio;
-    private boolean disponible;
+public class Suite extends Habitacion {
+    private List<HabitacionComponent> children = new ArrayList<>();
 
-    public Suite(int numeroHabitacion, int capacidad, String tipo, List<String> extras, float precio) {
-        this.numeroHabitacion = numeroHabitacion;
-        this.capacidad = capacidad;
-        this.tipo = tipo;
-        this.extras = new ArrayList<>(extras);
-        this.precio = precio;
-        this.disponible = true;
+    public Suite(int numeroHabitacion, int capacidad, double precio, String descripcion) {
+        super(numeroHabitacion, capacidad, "Suite", precio, descripcion);
     }
 
     @Override
-    public int getNumeroHabitacion() {
-        return numeroHabitacion;
+    public void agregarHabitacion(HabitacionComponent habitacionComponent) {
+        children.add(habitacionComponent);
     }
 
     @Override
-    public int getCapacidad() {
-        return capacidad;
+    public void removerHabitacion(HabitacionComponent habitacionComponent) {
+        children.remove(habitacionComponent);
     }
 
     @Override
-    public String getTipo() {
-        return tipo;
+    public List<HabitacionComponent> getHabitaciones() {
+        return children;
     }
 
     @Override
-    public List<String> getExtras() {
-        return new ArrayList<>(extras);
+    public double obtenerPrecio() {
+        double total = super.obtenerPrecio();
+        for (HabitacionComponent hc : children) {
+            total += hc.obtenerPrecio();
+        }
+        return total;
     }
 
     @Override
-    public float obtenerPrecio() {
-        return precio;
-    }
-
-    @Override
-    public void agregarHabitacion(HabitacionComponent habitacion) {
-        // No aplica para suites individuales
-    }
-
-    @Override
-    public void removerHabitacion(HabitacionComponent habitacion) {
-        // No aplica para suites individuales
-    }
-
-    @Override
-    public boolean verificarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut) {
-        return disponible;
-    }
-
-    @Override
-    public void actualizarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut, boolean disponible) {
-        this.disponible = disponible;
-    }
-
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public String obtenerDescripcion() {
+        StringBuilder desc = new StringBuilder(super.obtenerDescripcion());
+        for (HabitacionComponent hc : children) {
+            desc.append("\n").append(hc.obtenerDescripcion());
+        }
+        return desc.toString();
     }
 }

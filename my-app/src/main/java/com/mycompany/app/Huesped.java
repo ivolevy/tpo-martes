@@ -1,27 +1,40 @@
 package com.mycompany.app;
 
 public class Huesped {
-    @SuppressWarnings("unused")
     private String nombre;
-    @SuppressWarnings("unused")
     private String apellido;
-    @SuppressWarnings("unused")
     private String dni;
-    @SuppressWarnings("unused")
-    private String telefono;
-    @SuppressWarnings("unused")
-    private String email;
-    @SuppressWarnings("unused")
-    private String contacto;
 
-    public Huesped(String nombre, String apellido, String dni, String telefono, String email, String contacto) {
+    public Huesped(String nombre, String apellido, String dni) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.telefono = telefono;
-        this.email = email;
-        this.contacto = contacto;
     }
 
-    // Getters y Setters
+    // Getters y setters
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 }
+

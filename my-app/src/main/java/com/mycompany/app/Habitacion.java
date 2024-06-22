@@ -1,24 +1,25 @@
 package com.mycompany.app;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Habitacion implements HabitacionComponent {
     private int numeroHabitacion;
     private int capacidad;
-    private String tipo;
-    private List<String> extras;
-    private float precio;
-    private boolean disponible;
+    private String tipoHabitacion;
+    private double precio;
+    private String descripcion;
+    @SuppressWarnings("unused")
+    private boolean disponibilidad;
+    private List<HabitacionComponent> extras = new ArrayList<>();
 
-    public Habitacion(int numeroHabitacion, int capacidad, String tipo, List<String> extras, float precio) {
+    public Habitacion(int numeroHabitacion, int capacidad, String tipoHabitacion, double precio, String descripcion) {
         this.numeroHabitacion = numeroHabitacion;
         this.capacidad = capacidad;
-        this.tipo = tipo;
-        this.extras = new ArrayList<>(extras);
+        this.tipoHabitacion = tipoHabitacion;
         this.precio = precio;
-        this.disponible = true;
+        this.descripcion = descripcion;
+        this.disponibilidad = true;
     }
 
     @Override
@@ -32,42 +33,37 @@ public class Habitacion implements HabitacionComponent {
     }
 
     @Override
-    public String getTipo() {
-        return tipo;
+    public String getTipoHabitacion() {
+        return tipoHabitacion;
     }
 
     @Override
-    public List<String> getExtras() {
-        return new ArrayList<>(extras);
-    }
-
-    @Override
-    public float obtenerPrecio() {
+    public double obtenerPrecio() {
         return precio;
     }
 
     @Override
-    public void agregarHabitacion(HabitacionComponent habitacion) {
-        // No aplica para habitaciones individuales
+    public String obtenerDescripcion() {
+        return descripcion;
     }
 
     @Override
-    public void removerHabitacion(HabitacionComponent habitacion) {
-        // No aplica para habitaciones individuales
+    public void actualizarDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
 
     @Override
-    public boolean verificarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut) {
-        // Lógica para verificar disponibilidad de la habitación
-        return disponible;
+    public void agregarHabitacion(HabitacionComponent habitacionComponent) {
+        extras.add(habitacionComponent);
     }
 
     @Override
-    public void actualizarDisponibilidad(Date fechaCheckIn, Date fechaCheckOut, boolean disponible) {
-        this.disponible = disponible;
+    public void removerHabitacion(HabitacionComponent habitacionComponent) {
+        extras.remove(habitacionComponent);
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    @Override
+    public List<HabitacionComponent> getHabitaciones() {
+        return extras;
     }
 }

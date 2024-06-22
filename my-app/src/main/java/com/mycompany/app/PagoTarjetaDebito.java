@@ -1,21 +1,17 @@
 package com.mycompany.app;
 
-import java.util.List;
-
-public class PagoTarjetaDebito extends FormaPago {
-    @SuppressWarnings("unused")
+public class PagoTarjetaDebito implements FormaPago {
     private String numTarjeta;
-    @SuppressWarnings("unused")
-    private float monto;
+    private double monto;
 
-    public PagoTarjetaDebito(List<String> extras, String numTarjeta, float monto) {
-        super(extras);
+    public PagoTarjetaDebito(String numTarjeta) {
         this.numTarjeta = numTarjeta;
-        this.monto = monto;
     }
 
     @Override
-    public void pagar(float monto) {
-        System.out.println("Pagando con tarjeta de débito: " + monto);
+    public void pagar(double monto) {
+        this.monto = monto;
+        // Lógica de pago con tarjeta de débito
+        System.out.println("Pago realizado con tarjeta de débito: " + monto);
     }
 }

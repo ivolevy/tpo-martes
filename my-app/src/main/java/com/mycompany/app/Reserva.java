@@ -4,63 +4,128 @@ import java.util.Date;
 import java.util.List;
 
 public class Reserva {
-    @SuppressWarnings("unused")
     private int idReserva;
-    private Date fechaCheckIn;
-    private Date fechaCheckOut;
+    private Date fechaCheckin;
+    private Date fechaCheckout;
+    private Date fechaReserva;
     private HabitacionComponent habitacion;
-    @SuppressWarnings("unused")
     private Cliente cliente;
-    @SuppressWarnings({ "unused" })
     private List<Huesped> huespedes;
-    @SuppressWarnings("unused")
     private FormaPago formaPago;
-    @SuppressWarnings("unused")
+    private double monto;
     private String estado;
+    private List<PoliticaPrecios> politicas;
 
-    public Reserva(Date fechaCheckIn, Date fechaCheckOut, HabitacionComponent habitacion, Cliente cliente, 
-                   List<Huesped> huespedes, FormaPago formaPago) {
-        this.fechaCheckIn = fechaCheckIn;
-        this.fechaCheckOut = fechaCheckOut;
+    public Reserva(int idReserva, Date fechaReserva, Date fechaCheckin, Date fechaCheckout, HabitacionComponent habitacion, Cliente cliente, List<Huesped> huespedes, FormaPago formaPago, double monto, String estado, List<PoliticaPrecios> politicas) {
+        this.idReserva = idReserva;
+        this.fechaReserva = fechaReserva;
+        this.fechaCheckin = fechaCheckin;
+        this.fechaCheckout = fechaCheckout;
         this.habitacion = habitacion;
         this.cliente = cliente;
         this.huespedes = huespedes;
         this.formaPago = formaPago;
-        this.estado = "pendiente de pago";
+        this.monto = monto;
+        this.estado = estado;
+        this.politicas = politicas;
     }
 
-    public void confirmarReserva() {
-        this.estado = "pagada";
+    // Getters y setters
+
+    public Reserva(int i, Date date, Date date2, HabitacionComponent habitacion2, Cliente cliente2,
+            List<Huesped> huespedes2, FormaPago pago, double d, String string, List<Object> asList) {
+        //TODO Auto-generated constructor stub
     }
 
-    public void cancelarReserva() {
-        this.estado = "cancelada";
-        habitacion.actualizarDisponibilidad(fechaCheckIn, fechaCheckOut, true);
+    public Reserva(Cliente cliente2, Habitacion habitacion2, java.sql.Date date, java.sql.Date date2, String string) {
+        //TODO Auto-generated constructor stub
     }
 
-    public void verificarDisponibilidad() {
-        habitacion.verificarDisponibilidad(fechaCheckIn, fechaCheckOut);
+    public int getIdReserva() {
+        return idReserva;
     }
 
-    public String getEstado() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getEstado'");
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
     }
 
-    public void setEstado(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setEstado'");
+    public Date getFechaCheckin() {
+        return fechaCheckin;
+    }
+
+    public void setFechaCheckin(Date fechaCheckin) {
+        this.fechaCheckin = fechaCheckin;
+    }
+
+    public Date getFechaCheckout() {
+        return fechaCheckout;
+    }
+
+    public void setFechaCheckout(Date fechaCheckout) {
+        this.fechaCheckout = fechaCheckout;
+    }
+
+    public Date getFechaReserva() {
+        return fechaReserva;
+    }
+
+    public void setFechaReserva(Date fechaReserva) {
+        this.fechaReserva = fechaReserva;
     }
 
     public HabitacionComponent getHabitacion() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHabitacion'");
+        return habitacion;
     }
 
-    public Date getFechaCheckIn() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getFechaCheckIn'");
+    public void setHabitacion(HabitacionComponent habitacion) {
+        this.habitacion = habitacion;
     }
 
-    // Getters y Setters
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<Huesped> getHuespedes() {
+        return huespedes;
+    }
+
+    public void setHuespedes(List<Huesped> huespedes) {
+        this.huespedes = huespedes;
+    }
+
+    public FormaPago getFormaPago() {
+        return formaPago;
+    }
+
+    public void setFormaPago(FormaPago formaPago) {
+        this.formaPago = formaPago;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public List<PoliticaPrecios> getPoliticas() {
+        return politicas;
+    }
+
+    public void setPoliticas(List<PoliticaPrecios> politicas) {
+        this.politicas = politicas;
+    }
 }
