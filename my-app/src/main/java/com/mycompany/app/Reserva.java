@@ -32,6 +32,10 @@ public class Reserva {
         this.estado = "pendiente de pago"; // Estado inicial de la reserva
     }
 
+    public Reserva(Cliente cliente2, String string, String string2, String string3) {
+        //TODO Auto-generated constructor stub
+    }
+
     public long getDuracionEstancia() {
         long diffInMillies = Math.abs(fechaCheckout.getTime() - fechaCheckin.getTime());
         return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);

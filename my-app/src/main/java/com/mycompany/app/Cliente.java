@@ -1,32 +1,34 @@
 package com.mycompany.app;
 
-import java.util.List;
+import java.util.Date;
 
-@SuppressWarnings("unused")
-public class Cliente extends UserController {
-    public Cliente(String nombre, String apellido, String dni, String telefono, String email, String contacto) {
-        super(nombre, apellido, dni, telefono, email, contacto);
+public class Cliente {
+
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private String email;
+    private String preferenciaContacto;
+    private PoliticaPrecios politicaPrecios;
+
+    public Cliente(String nombre, String apellido, String dni, String email, String preferenciaContacto) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.dni = dni;
+        this.email = email;
+        this.preferenciaContacto = preferenciaContacto;
+        this.politicaPrecios = new PoliticaPrecios();
     }
 
-    public void realizarReserva(Reserva reserva) {
-        reserva.setEstado("pendiente de pago");
-        reserva.getHabitacion().actualizarDisponibilidad(false);
-        reserva.setMonto(calcularMontoReserva(reserva));
+    public String getNombreCompleto() {
+        return nombre + " " + apellido;
     }
 
-    private double calcularMontoReserva(Reserva reserva) {
-        // Implementación para calcular el monto total de la reserva.
-        double montoTotal = 0;
-        // Calcular monto base por la habitación
-        montoTotal += reserva.getHabitacion().getPrecio() * reserva.getDuracionEstancia();
-        // Agregar extras si existen
-        for (Extras extra : reserva.getExtras()) {
-            montoTotal += extra.getPrecio();
-        }
-        // Aplicar políticas de precios si existen
-        for (PoliticaPrecios politica : reserva.getPoliticas()) {
-            montoTotal -= politica.calcularDescuento(reserva.getFechaReserva(), reserva.getFechaCheckin());
-        }
-        return montoTotal;
+    public String getPreferenciaContacto() {
+        return preferenciaContacto;
+    }
+
+    public double obtenerDescuento(Date fechaReserva, Date fechaCheckIn) {
+        return politicaPrecios.calcularDescuento(fechaReserva, fechaCheckIn);
     }
 }

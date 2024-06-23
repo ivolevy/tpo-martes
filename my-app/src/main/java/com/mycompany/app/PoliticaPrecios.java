@@ -4,42 +4,48 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class PoliticaPrecios {
-    private float plazo;
-    private float porcentaje;
 
-    public PoliticaPrecios(float plazo, float porcentaje) {
-        this.plazo = plazo;
-        this.porcentaje = porcentaje;
+    private double descuentoPorDefecto;
+    private double aumentoPorDefecto;
+
+    public PoliticaPrecios() {
+        this.descuentoPorDefecto = 0.15; // 15% de descuento por defecto
+        this.aumentoPorDefecto = 0.20; // 20% de aumento por defecto
     }
 
-    public float calcularDescuento(Date fechaReserva, Date fechaCheckin) {
-        long diffInMillies = Math.abs(fechaCheckin.getTime() - fechaReserva.getTime());
+    public double calcularPrecio(double precioBase, int diasAnticipacion) {
+        System.out.println("Calculando precio para base: " + precioBase + " con diasAnticipacion: " + diasAnticipacion);
+        if (diasAnticipacion <= 15) {
+            System.out.println("Aplicando descuento del 15%");
+            return precioBase * (1 - descuentoPorDefecto);
+        } else if (diasAnticipacion > 60) {
+            System.out.println("Aplicando aumento del 20%");
+            return precioBase * (1 + aumentoPorDefecto);
+        } else {
+            System.out.println("Sin cambios en el precio");
+            return precioBase;
+        }
+    }
+    
+
+    public double calcularDescuento(Date fechaReserva, Date fechaCheckIn) {
+        long diffInMillies = Math.abs(fechaCheckIn.getTime() - fechaReserva.getTime());
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
         if (diff <= 15) {
-            return -0.15f; // Descuento del 15% por reserva a corto plazo
-        } else if (diff >= 60) {
-            return 0.20f; // Aumento del 20% por reserva a largo plazo
+            return descuentoPorDefecto;
+        } else if (diff > 60) {
+            return aumentoPorDefecto;
+        } else {
+            return 0;
         }
-        return 0.0f;
     }
 
-    // Getters y setters
-
-    public float getPlazo() {
-        return plazo;
+    public void setDescuentoPorDefecto(double descuentoPorDefecto) {
+        this.descuentoPorDefecto = descuentoPorDefecto;
     }
 
-    public void setPlazo(float plazo) {
-        this.plazo = plazo;
-    }
-
-    public float getPorcentaje() {
-        return porcentaje;
-    }
-
-    public void setPorcentaje(float porcentaje) {
-        this.porcentaje = porcentaje;
+    public void setAumentoPorDefecto(double aumentoPorDefecto) {
+        this.aumentoPorDefecto = aumentoPorDefecto;
     }
 }
-
