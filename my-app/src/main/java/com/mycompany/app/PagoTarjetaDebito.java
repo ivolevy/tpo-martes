@@ -1,7 +1,9 @@
 package com.mycompany.app;
 
 public class PagoTarjetaDebito implements FormaPago {
+    @SuppressWarnings("unused")
     private String numTarjeta;
+    @SuppressWarnings("unused")
     private double monto;
 
     public PagoTarjetaDebito(String numTarjeta) {

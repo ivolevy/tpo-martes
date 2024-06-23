@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 public class PagoTransferencia implements FormaPago {
+    @SuppressWarnings("unused")
     private String numTarjeta;
 
     public PagoTransferencia(String numTarjeta) {

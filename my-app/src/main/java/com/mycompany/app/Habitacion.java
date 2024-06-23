@@ -66,4 +66,10 @@ public class Habitacion implements HabitacionComponent {
     public List<HabitacionComponent> getHabitaciones() {
         return extras;
     }
+
+    @Override
+    public void setPrecio(double nuevoPrecio) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setPrecio'");
+    }
 }

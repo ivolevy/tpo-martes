@@ -2,6 +2,7 @@ package com.mycompany.app;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class Cliente extends UserController {
     public Cliente(String nombre, String apellido, String dni, String telefono, String email, String contacto) {
         super(nombre, apellido, dni, telefono, email, contacto);

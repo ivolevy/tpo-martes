@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 public class PagoEfectivo implements FormaPago {
+    @SuppressWarnings("unused")
     private double monto;
 
     @Override
