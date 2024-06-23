@@ -1,75 +1,35 @@
 package com.mycompany.app;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class Habitacion implements HabitacionComponent {
-    private int numeroHabitacion;
-    private int capacidad;
-    private String tipoHabitacion;
-    private double precio;
-    private String descripcion;
-    @SuppressWarnings("unused")
-    private boolean disponibilidad;
-    private List<HabitacionComponent> extras = new ArrayList<>();
-
-    public Habitacion(int numeroHabitacion, int capacidad, String tipoHabitacion, double precio, String descripcion) {
-        this.numeroHabitacion = numeroHabitacion;
-        this.capacidad = capacidad;
-        this.tipoHabitacion = tipoHabitacion;
-        this.precio = precio;
-        this.descripcion = descripcion;
-        this.disponibilidad = true;
+public class Habitacion extends HabitacionComponent {
+    public Habitacion(int numeroHabitacion, int capacidad, String tipo, double precio, String descripcion) {
+        super(numeroHabitacion, capacidad, tipo, precio, descripcion);
     }
 
     @Override
-    public int getNumeroHabitacion() {
-        return numeroHabitacion;
+    public void actualizarDisponibilidad(boolean disponible) {
+        this.disponible = disponible;
     }
 
     @Override
-    public int getCapacidad() {
-        return capacidad;
-    }
-
-    @Override
-    public String getTipoHabitacion() {
-        return tipoHabitacion;
-    }
-
-    @Override
-    public double obtenerPrecio() {
-        return precio;
-    }
-
-    @Override
-    public String obtenerDescripcion() {
-        return descripcion;
-    }
-
-    @Override
-    public void actualizarDisponibilidad(boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
-
-    @Override
-    public void agregarHabitacion(HabitacionComponent habitacionComponent) {
-        extras.add(habitacionComponent);
-    }
-
-    @Override
-    public void removerHabitacion(HabitacionComponent habitacionComponent) {
-        extras.remove(habitacionComponent);
-    }
-
-    @Override
-    public List<HabitacionComponent> getHabitaciones() {
-        return extras;
-    }
-
-    @Override
-    public void setPrecio(double nuevoPrecio) {
+    protected void setPrecio(double nuevoPrecio) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'setPrecio'");
+    }
+
+    @Override
+    protected void agregarHabitacion(HabitacionComponent habitacion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'agregarHabitacion'");
+    }
+
+    @Override
+    protected void removerHabitacion(HabitacionComponent habitacion) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'removerHabitacion'");
+    }
+
+    public double obtenerPrecio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'obtenerPrecio'");
     }
 }

@@ -1,40 +1,12 @@
 package com.mycompany.app;
 
-public class Huesped {
-    private String nombre;
-    private String apellido;
-    private String dni;
-
-    public Huesped(String nombre, String apellido, String dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.dni = dni;
+public class Huesped extends UserController {
+    public Huesped(String nombre, String apellido, String dni, String telefono, String email, String contacto) {
+        super(nombre, apellido, dni, telefono, email, contacto);
     }
 
-    // Getters y setters
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void solicitarServicio(String servicio) {
+        // Implementación de la lógica para solicitar un servicio
+        System.out.println("Servicio solicitado: " + servicio);
     }
 }
-

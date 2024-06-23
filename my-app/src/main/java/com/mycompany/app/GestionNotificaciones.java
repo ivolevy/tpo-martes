@@ -1,16 +1,25 @@
 package com.mycompany.app;
 
-public class GestionNotificaciones {
-    private NotificacionStrategy notificacionStrategy;
+import java.util.List;
 
-    public void setNotificacionStrategy(NotificacionStrategy notificacionStrategy) {
-        this.notificacionStrategy = notificacionStrategy;
+public class GestionNotificaciones {
+    private List<NotificacionStrategy> notificaciones;
+
+    public GestionNotificaciones(List<NotificacionStrategy> notificaciones) {
+        this.notificaciones = notificaciones;
     }
 
-    public void notificar(String mensaje, Cliente cliente) {
-        if (notificacionStrategy != null) {
-            notificacionStrategy.notificar(mensaje, cliente);
+    public void agregarNotificacion(NotificacionStrategy notificacion) {
+        notificaciones.add(notificacion);
+    }
+
+    public void eliminarNotificacion(NotificacionStrategy notificacion) {
+        notificaciones.remove(notificacion);
+    }
+
+    public void enviarNotificaciones() {
+        for (NotificacionStrategy notificacion : notificaciones) {
+            notificacion.enviar();
         }
     }
 }
-

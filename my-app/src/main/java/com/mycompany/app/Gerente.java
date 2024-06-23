@@ -17,4 +17,14 @@ public class Gerente extends UserController {
     public void removerHabitacion(HabitacionComponent suite, HabitacionComponent habitacion) {
         suite.removerHabitacion(habitacion);
     }
+
+    public void gestionarReservas(Reserva reserva) {
+        // Implementación de la lógica para gestionar reservas
+        System.out.println("Gestionando reserva número: " + reserva.getIdReserva());
+    }
+
+    public void revisarHabitaciones(HabitacionComponent habitacion) {
+        // Implementación de la lógica para revisar habitaciones
+        System.out.println("Revisando habitación número: " + habitacion.getNumeroHabitacion());
+    }
 }

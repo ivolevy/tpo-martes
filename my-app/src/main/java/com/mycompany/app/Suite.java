@@ -20,7 +20,6 @@ public class Suite extends Habitacion {
         children.remove(habitacionComponent);
     }
 
-    @Override
     public List<HabitacionComponent> getHabitaciones() {
         return children;
     }
@@ -34,11 +33,10 @@ public class Suite extends Habitacion {
         return total;
     }
 
-    @Override
     public String obtenerDescripcion() {
-        StringBuilder desc = new StringBuilder(super.obtenerDescripcion());
+        StringBuilder desc = new StringBuilder(super.getDescripcion());
         for (HabitacionComponent hc : children) {
-            desc.append("\n").append(hc.obtenerDescripcion());
+            desc.append("\n").append(hc.getDescripcion());
         }
         return desc.toString();
     }

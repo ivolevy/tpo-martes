@@ -2,6 +2,7 @@ package com.mycompany.app;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Reserva {
     private int idReserva;
@@ -15,32 +16,28 @@ public class Reserva {
     private double monto;
     private String estado;
     private List<PoliticaPrecios> politicas;
+    private List<Extras> extras; // Añadido para la lista de extras
 
-    public Reserva(int idReserva, Date fechaReserva, Date fechaCheckin, Date fechaCheckout, HabitacionComponent habitacion, Cliente cliente, List<Huesped> huespedes, FormaPago formaPago, double monto, String estado, List<PoliticaPrecios> politicas) {
+    public Reserva(int idReserva, Date fechaCheckin, Date fechaCheckout, Date fechaReserva, HabitacionComponent habitacion, Cliente cliente, List<Huesped> huespedes, FormaPago formaPago, List<PoliticaPrecios> politicas, List<Extras> extras) {
         this.idReserva = idReserva;
-        this.fechaReserva = fechaReserva;
         this.fechaCheckin = fechaCheckin;
         this.fechaCheckout = fechaCheckout;
+        this.fechaReserva = fechaReserva;
         this.habitacion = habitacion;
         this.cliente = cliente;
         this.huespedes = huespedes;
         this.formaPago = formaPago;
-        this.monto = monto;
-        this.estado = estado;
         this.politicas = politicas;
+        this.extras = extras;
+        this.estado = "pendiente de pago"; // Estado inicial de la reserva
     }
 
-    // Getters y setters
-
-    public Reserva(int i, Date date, Date date2, HabitacionComponent habitacion2, Cliente cliente2,
-            List<Huesped> huespedes2, FormaPago pago, double d, String string, List<Object> asList) {
-        //TODO Auto-generated constructor stub
+    public long getDuracionEstancia() {
+        long diffInMillies = Math.abs(fechaCheckout.getTime() - fechaCheckin.getTime());
+        return TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
     }
 
-    public Reserva(Cliente cliente2, Habitacion habitacion2, java.sql.Date date, java.sql.Date date2, String string) {
-        //TODO Auto-generated constructor stub
-    }
-
+    // Métodos getters y setters
     public int getIdReserva() {
         return idReserva;
     }
@@ -127,5 +124,13 @@ public class Reserva {
 
     public void setPoliticas(List<PoliticaPrecios> politicas) {
         this.politicas = politicas;
+    }
+
+    public List<Extras> getExtras() {
+        return extras;
+    }
+
+    public void setExtras(List<Extras> extras) {
+        this.extras = extras;
     }
 }
