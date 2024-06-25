@@ -25,7 +25,7 @@ public void testCalcularPrecioDescuento() {
 @Test
 public void testCalcularPrecioAumento() {
     double precioBase = 1000.0;
-    double precioEsperado = 1200.0; // 20% de aumento
+    double precioEsperado = 1200.0; 
     double precioCalculado = politicaPrecios.calcularPrecio(precioBase, 70);
     System.out.println("Precio calculado: " + precioCalculado + " Precio esperado: " + precioEsperado);
     assertEquals(precioEsperado, precioCalculado, 0.01);
@@ -34,7 +34,7 @@ public void testCalcularPrecioAumento() {
 @Test
 public void testCalcularPrecioSinCambio() {
     double precioBase = 1000.0;
-    double precioEsperado = 1000.0; // Sin cambios
+    double precioEsperado = 1000.0; 
     double precioCalculado = politicaPrecios.calcularPrecio(precioBase, 30);
     System.out.println("Precio calculado: " + precioCalculado + " Precio esperado: " + precioEsperado);
     assertEquals(precioEsperado, precioCalculado, 0.01);

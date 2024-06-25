@@ -18,19 +18,15 @@ public class ContabilidadTest {
     public void testCalcularIngresos() {
         System.out.println("Ejecutando testCalcularIngresos...");
 
-        // Datos de prueba
         double ingresosEsperados = 1000.0;
         contabilidad.registrarIngreso(500.0);
         contabilidad.registrarIngreso(500.0);
 
-        // Ejecución de la prueba
         double ingresosObtenidos = contabilidad.calcularIngresos();
 
-        // Imprimir datos de prueba y resultado esperado
         System.out.println("Ingresos esperados: " + ingresosEsperados);
         System.out.println("Ingresos obtenidos: " + ingresosObtenidos);
 
-        // Aserción
         assertEquals(ingresosEsperados, ingresosObtenidos, 0.001);
     }
 
@@ -38,19 +34,15 @@ public class ContabilidadTest {
     public void testCalcularGastos() {
         System.out.println("Ejecutando testCalcularGastos...");
 
-        // Datos de prueba
         double gastosEsperados = 200.0;
         contabilidad.registrarGasto(100.0);
         contabilidad.registrarGasto(100.0);
 
-        // Ejecución de la prueba
         double gastosObtenidos = contabilidad.calcularGastos();
 
-        // Imprimir datos de prueba y resultado esperado
         System.out.println("Gastos esperados: " + gastosEsperados);
         System.out.println("Gastos obtenidos: " + gastosObtenidos);
 
-        // Aserción
         assertEquals(gastosEsperados, gastosObtenidos, 0.001);
     }
 }

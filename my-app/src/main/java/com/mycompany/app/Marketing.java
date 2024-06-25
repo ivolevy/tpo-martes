@@ -1,8 +1,31 @@
 package com.mycompany.app;
 
 public class Marketing {
-    public void enviarPromocion(String promocion, Cliente cliente) {
-        // Implementación de la lógica para enviar promociones a los clientes
-        System.out.println("Enviando promoción: " + promocion + " al cliente: " + cliente.getNombreCompleto());
+    private String campaña;
+    private double descuento;
+
+    public Marketing(String campaña, double descuento) {
+        this.campaña = campaña;
+        this.descuento = descuento;
+    }
+
+    public String getCampaña() {
+        return campaña;
+    }
+
+    public void setCampaña(String campaña) {
+        this.campaña = campaña;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
+    public double aplicarDescuento(double precioOriginal) {
+        return precioOriginal - (precioOriginal * descuento / 100);
     }
 }
