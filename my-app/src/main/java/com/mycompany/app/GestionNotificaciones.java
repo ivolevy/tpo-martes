@@ -3,23 +3,27 @@ package com.mycompany.app;
 import java.util.List;
 
 public class GestionNotificaciones {
-    private List<NotificacionStrategy> notificaciones;
+    private List<NotificacionStrategy> estrategias;
+    private String tipoNotificacion;
 
-    public GestionNotificaciones(List<NotificacionStrategy> notificaciones) {
-        this.notificaciones = notificaciones;
+    public GestionNotificaciones(List<NotificacionStrategy> estrategias) {
+        this.estrategias = estrategias;
     }
 
-    public void agregarNotificacion(NotificacionStrategy notificacion) {
-        notificaciones.add(notificacion);
-    }
-
-    public void eliminarNotificacion(NotificacionStrategy notificacion) {
-        notificaciones.remove(notificacion);
-    }
-
-    public void enviarNotificaciones() {
-        for (NotificacionStrategy notificacion : notificaciones) {
-            notificacion.enviar();
+    public boolean enviarNotificacion(String mensaje) {
+        for (NotificacionStrategy estrategia : estrategias) {
+            if (estrategia.enviar(mensaje)) {
+                return true;
+            }
         }
+        return false;
+    }
+
+    public void configurarTipoNotificacion(String tipo) {
+        this.tipoNotificacion = tipo;
+    }
+
+    public String getTipoNotificacion() {
+        return tipoNotificacion;
     }
 }

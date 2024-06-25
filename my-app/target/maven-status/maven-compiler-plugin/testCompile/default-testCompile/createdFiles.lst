@@ -2,5 +2,6 @@ com/mycompany/app/MarketingTest.class
 com/mycompany/app/GerenteTest.class
 com/mycompany/app/ContabilidadTest.class
 com/mycompany/app/ExtrasTest.class
+com/mycompany/app/GestionNotificacionesTest.class
 com/mycompany/app/FacturaTest.class
 com/mycompany/app/HabitacionTest.class

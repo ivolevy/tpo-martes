@@ -1,21 +1,16 @@
 package com.mycompany.app;
 
 public class Notification implements NotificacionStrategy {
-    private String mensaje;
+    private String type;
 
-    public Notification(String mensaje) {
-        this.mensaje = mensaje;
+    public Notification(String type) {
+        this.type = type;
     }
 
     @Override
-    public void enviar() {
-        // Implementación de la lógica para enviar una notificación
-        System.out.println("Enviando notificación: " + mensaje);
-    }
-
-    @Override
-    public void notificar(String mensaje, Cliente cliente) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'notificar'");
+    public boolean enviar(String mensaje) {
+        // Lógica de notificación basada en el tipo
+        System.out.println("Enviando notificación de tipo " + type + ": " + mensaje);
+        return true;
     }
 }
