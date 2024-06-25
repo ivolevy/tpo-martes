@@ -1,30 +1,33 @@
 package com.mycompany.app;
 
-public class Gerente extends UserController {
+public class Gerente {
 
-    public Gerente(String nombre, String apellido, String dni, String telefono, String email, String contacto) {
-        super(nombre, apellido, dni, telefono, email, contacto);
+    private String nombre;
+    private String identificacion;
+
+    public Gerente(String nombre, String identificacion) {
+        this.nombre = nombre;
+        this.identificacion = identificacion;
     }
 
-    public void actualizarPrecioHabitacion(HabitacionComponent habitacion, double nuevoPrecio) {
-        habitacion.setPrecio(nuevoPrecio);
+    public String getNombre() {
+        return nombre;
     }
 
-    public void agregarHabitacion(HabitacionComponent suite, HabitacionComponent habitacion) {
-        suite.agregarHabitacion(habitacion);
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void removerHabitacion(HabitacionComponent suite, HabitacionComponent habitacion) {
-        suite.removerHabitacion(habitacion);
+    public String getIdentificacion() {
+        return identificacion;
     }
 
-    public void gestionarReservas(Reserva reserva) {
-        // Implementación de la lógica para gestionar reservas
-        System.out.println("Gestionando reserva número: " + reserva.getIdReserva());
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
     }
 
-    public void revisarHabitaciones(HabitacionComponent habitacion) {
-        // Implementación de la lógica para revisar habitaciones
-        System.out.println("Revisando habitación número: " + habitacion.getNumeroHabitacion());
+    public String autorizarOperacion() {
+        // Supongamos que siempre autoriza la operación
+        return "Operación autorizada";
     }
 }
