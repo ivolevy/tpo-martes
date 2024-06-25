@@ -1,43 +1,23 @@
 package com.mycompany.app;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Suite extends Habitacion {
-    private List<HabitacionComponent> children = new ArrayList<>();
+    private boolean tieneJacuzzi;
 
-    public Suite(int numeroHabitacion, int capacidad, double precio, String descripcion) {
-        super(numeroHabitacion, capacidad, "Suite", precio, descripcion);
+    public Suite(int id, int numeroHabitacion, String tipo, double precio, String descripcion, boolean tieneJacuzzi) {
+        super(id, numeroHabitacion, tipo, precio, descripcion);
+        this.tieneJacuzzi = tieneJacuzzi;
     }
 
-    @Override
-    public void agregarHabitacion(HabitacionComponent habitacionComponent) {
-        children.add(habitacionComponent);
+    public boolean isTieneJacuzzi() {
+        return tieneJacuzzi;
     }
 
-    @Override
-    public void removerHabitacion(HabitacionComponent habitacionComponent) {
-        children.remove(habitacionComponent);
+    public void setTieneJacuzzi(boolean tieneJacuzzi) {
+        this.tieneJacuzzi = tieneJacuzzi;
     }
 
-    public List<HabitacionComponent> getHabitaciones() {
-        return children;
-    }
-
-    @Override
+    // Método adicional
     public double obtenerPrecio() {
-        double total = super.obtenerPrecio();
-        for (HabitacionComponent hc : children) {
-            total += hc.obtenerPrecio();
-        }
-        return total;
-    }
-
-    public String obtenerDescripcion() {
-        StringBuilder desc = new StringBuilder(super.getDescripcion());
-        for (HabitacionComponent hc : children) {
-            desc.append("\n").append(hc.getDescripcion());
-        }
-        return desc.toString();
+        return super.getPrecio() + (tieneJacuzzi ? 50.0 : 0.0);
     }
 }

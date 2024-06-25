@@ -1,25 +1,22 @@
 package com.mycompany.app;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GestionHotel {
     private List<Habitacion> habitaciones;
 
-    public GestionHotel(List<Habitacion> habitaciones) {
-        this.habitaciones = habitaciones;
+    public GestionHotel() {
+        habitaciones = new ArrayList<>();
     }
 
     public void agregarHabitacion(Habitacion habitacion) {
         habitaciones.add(habitacion);
     }
 
-    public void eliminarHabitacion(Habitacion habitacion) {
-        habitaciones.remove(habitacion);
-    }
-
-    public Habitacion buscarHabitacion(int numero) {
+    public Habitacion buscarHabitacionPorNumero(int numeroHabitacion) {
         for (Habitacion habitacion : habitaciones) {
-            if (habitacion.getNumeroHabitacion() == numero) {
+            if (habitacion.getNumeroHabitacion() == numeroHabitacion) {
                 return habitacion;
             }
         }

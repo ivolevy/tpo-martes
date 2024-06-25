@@ -1,35 +1,53 @@
 package com.mycompany.app;
 
-public class Habitacion extends HabitacionComponent {
-    public Habitacion(int numeroHabitacion, int capacidad, String tipo, double precio, String descripcion) {
-        super(numeroHabitacion, capacidad, tipo, precio, descripcion);
+public class Habitacion {
+    private int id;
+    private int numeroHabitacion;
+    private String tipo;
+    private double precio;
+    private String descripcion;
+
+    public Habitacion(int id, int numeroHabitacion, String tipo, double precio, String descripcion) {
+        this.id = id;
+        this.numeroHabitacion = numeroHabitacion;
+        this.tipo = tipo;
+        this.precio = precio;
+        this.descripcion = descripcion;
     }
 
-    @Override
-    public void actualizarDisponibilidad(boolean disponible) {
-        this.disponible = disponible;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    protected void setPrecio(double nuevoPrecio) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setPrecio'");
+    public int getNumeroHabitacion() {
+        return numeroHabitacion;
     }
 
-    @Override
-    protected void agregarHabitacion(HabitacionComponent habitacion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'agregarHabitacion'");
+    public void setNumeroHabitacion(int numeroHabitacion) {
+        this.numeroHabitacion = numeroHabitacion;
     }
 
-    @Override
-    protected void removerHabitacion(HabitacionComponent habitacion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removerHabitacion'");
+    public String getTipo() {
+        return tipo;
     }
 
-    public double obtenerPrecio() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtenerPrecio'");
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }
