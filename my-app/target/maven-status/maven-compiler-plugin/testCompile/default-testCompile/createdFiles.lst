@@ -1,6 +1,7 @@
 com/mycompany/app/PagoTarjetaCreditoTest.class
 com/mycompany/app/GerenteTest.class
 com/mycompany/app/ContabilidadTest.class
+com/mycompany/app/HuespedTest.class
 com/mycompany/app/PagoTransferenciaTest.class
 com/mycompany/app/PagoTarjetaDebitoTest.class
 com/mycompany/app/MarketingTest.class
