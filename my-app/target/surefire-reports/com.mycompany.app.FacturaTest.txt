@@ -1,4 +1,34 @@
 -------------------------------------------------------------------------------
 Test set: com.mycompany.app.FacturaTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in com.mycompany.app.FacturaTest
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.071 s <<< FAILURE! - in com.mycompany.app.FacturaTest
+testGettersAndSetters(com.mycompany.app.FacturaTest)  Time elapsed: 0.061 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The constructor Factura(int, Date, double) is undefined
+	The method setNumero(int) is undefined for the type Factura
+	The method setFechaEmision(Date) is undefined for the type Factura
+	The method setMonto(double) is undefined for the type Factura
+	The method getNumero() is undefined for the type Factura
+	The method getFechaEmision() is undefined for the type Factura
+	The method getMonto() is undefined for the type Factura
+
+	at com.mycompany.app.FacturaTest.testGettersAndSetters(FacturaTest.java:30)
+
+testEnviarFactura(com.mycompany.app.FacturaTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The constructor Factura(int, Date, double) is undefined
+
+	at com.mycompany.app.FacturaTest.testEnviarFactura(FacturaTest.java:50)
+
+testConstructor(com.mycompany.app.FacturaTest)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The constructor Factura(int, Date, double) is undefined
+	The method getNumero() is undefined for the type Factura
+	The method getFechaEmision() is undefined for the type Factura
+	The method getMonto() is undefined for the type Factura
+
+	at com.mycompany.app.FacturaTest.testConstructor(FacturaTest.java:16)
+

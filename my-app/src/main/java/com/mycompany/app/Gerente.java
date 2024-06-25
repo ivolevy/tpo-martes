@@ -27,7 +27,6 @@ public class Gerente {
     }
 
     public String autorizarOperacion() {
-        // Supongamos que siempre autoriza la operación
         return "Operación autorizada";
     }
 }

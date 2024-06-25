@@ -9,7 +9,6 @@ public class Notification implements NotificacionStrategy {
 
     @Override
     public boolean enviar(String mensaje) {
-        // Lógica de notificación basada en el tipo
         System.out.println("Enviando notificación de tipo " + type + ": " + mensaje);
         return true;
     }

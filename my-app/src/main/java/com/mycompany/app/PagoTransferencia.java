@@ -10,7 +10,6 @@ public class PagoTransferencia implements FormaPago {
 
     @Override
     public void pagar(double monto) {
-        // Lógica de pago con transferencia
         System.out.println("Pago realizado por transferencia: " + monto);
     }
 }

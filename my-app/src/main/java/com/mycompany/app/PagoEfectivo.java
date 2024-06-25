@@ -7,7 +7,6 @@ public class PagoEfectivo implements FormaPago {
     @Override
     public void pagar(double monto) {
         this.monto = monto;
-        // Lógica de pago en efectivo
         System.out.println("Pago realizado en efectivo: " + monto);
     }
 }

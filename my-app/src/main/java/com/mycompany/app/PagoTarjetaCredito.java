@@ -13,7 +13,6 @@ public class PagoTarjetaCredito implements FormaPago {
     @Override
     public void pagar(double monto) {
         this.monto = monto;
-        // Lógica de pago con tarjeta de crédito
         System.out.println("Pago realizado con tarjeta de crédito: " + monto);
     }
 }

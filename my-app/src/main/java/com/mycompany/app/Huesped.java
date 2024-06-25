@@ -6,7 +6,6 @@ public class Huesped extends UserController {
     }
 
     public void solicitarServicio(String servicio) {
-        // Implementación de la lógica para solicitar un servicio
         System.out.println("Servicio solicitado: " + servicio);
     }
 }
