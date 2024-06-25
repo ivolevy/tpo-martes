@@ -1,28 +1,27 @@
 package com.mycompany.app;
 
 public class Extras {
-    private String nombre;
-    private float precio;
+    private String descripcion;
+    private double precio;
 
-    public Extras(String nombre, float precio) {
-        this.nombre = nombre;
+    public Extras(String descripcion, double precio) {
+        this.descripcion = descripcion;
         this.precio = precio;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 }
-
