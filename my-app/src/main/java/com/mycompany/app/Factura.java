@@ -14,14 +14,11 @@ public class Factura {
     }
 
     public void enviarFactura() {
-        // Implementación para enviar factura
-        // Simulación de envío de factura, por ejemplo, imprimir en consola
         System.out.println("Enviando factura número: " + numero);
         System.out.println("Fecha de emisión: " + fechaEmision);
         System.out.println("Monto: " + monto);
     }
 
-    // Getters y setters
     public int getNumero() {
         return numero;
     }

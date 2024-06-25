@@ -9,8 +9,8 @@ public class PoliticaPrecios {
     private double aumentoPorDefecto;
 
     public PoliticaPrecios() {
-        this.descuentoPorDefecto = 0.15; // 15% de descuento por defecto
-        this.aumentoPorDefecto = 0.20; // 20% de aumento por defecto
+        this.descuentoPorDefecto = 0.15; 
+        this.aumentoPorDefecto = 0.20; 
     }
 
     public double calcularPrecio(double precioBase, int diasAnticipacion) {

@@ -16,7 +16,7 @@ public class Reserva {
     private double monto;
     private String estado;
     private List<PoliticaPrecios> politicas;
-    private List<Extras> extras; // Añadido para la lista de extras
+    private List<Extras> extras; 
 
     public Reserva(int idReserva, Date fechaCheckin, Date fechaCheckout, Date fechaReserva, HabitacionComponent habitacion, Cliente cliente, List<Huesped> huespedes, FormaPago formaPago, List<PoliticaPrecios> politicas, List<Extras> extras) {
         this.idReserva = idReserva;
@@ -29,7 +29,7 @@ public class Reserva {
         this.formaPago = formaPago;
         this.politicas = politicas;
         this.extras = extras;
-        this.estado = "pendiente de pago"; // Estado inicial de la reserva
+        this.estado = "pendiente de pago";
     }
 
     public Reserva(Cliente cliente2, String string, String string2, String string3) {
